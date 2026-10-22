@@ -18,9 +18,9 @@
       --bg-canvas: #FAF7F2;
       --bg-surface: #FFFFFF;
       --bg-subtle: #F3ECE1;
-      --bg-elevated: #FCFAF7;
+      --bg-card-subtle: #FDFBF8;
       
-      --border-light: rgba(188, 170, 153, 0.28);
+      --border-light: rgba(188, 170, 153, 0.32);
       --border-medium: rgba(162, 142, 123, 0.45);
       --border-accent: #BFA58D;
 
@@ -35,8 +35,8 @@
       
       --shadow-sm: 0 2px 8px rgba(50, 38, 30, 0.04);
       --shadow-md: 0 10px 28px rgba(50, 38, 30, 0.06);
-      --shadow-lg: 0 18px 42px rgba(50, 38, 30, 0.09);
-      --shadow-glow: 0 0 24px rgba(188, 170, 153, 0.18);
+      --shadow-lg: 0 18px 42px rgba(50, 38, 30, 0.1);
+      --shadow-glow: 0 0 22px rgba(188, 170, 153, 0.2);
 
       --radius-sm: 6px;
       --radius-md: 12px;
@@ -69,7 +69,7 @@
     }
 
     .container {
-      max-width: 960px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -81,7 +81,7 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(250, 247, 242, 0.92);
+      background: rgba(250, 247, 242, 0.94);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border-light);
@@ -273,8 +273,8 @@
        4. Hero 介紹區塊
        ========================================================================== */
     .hero-section {
-      padding-top: 72px;
-      padding-bottom: 56px;
+      padding-top: 68px;
+      padding-bottom: 52px;
     }
 
     .hero-meta-chip {
@@ -336,7 +336,7 @@
       }
     }
 
-    /* 對稱 3 欄綜合數據區塊 */
+    /* 3 欄式綜合數據區塊 */
     .hero-stats-row {
       display: grid;
       grid-template-columns: 1fr;
@@ -408,7 +408,7 @@
     }
 
     /* ==========================================================================
-       5. 核心特質
+       5. 核心特質 (UX 快速掃讀重點化升級)
        ========================================================================== */
     .traits-grid {
       display: grid;
@@ -422,11 +422,11 @@
       }
     }
 
-    .trait-item {
+    .trait-item-v2 {
       background: var(--bg-surface);
       border: 1px solid var(--border-light);
       border-radius: var(--radius-lg);
-      padding: 28px 24px;
+      padding: 24px 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -434,56 +434,102 @@
       transition: all 0.3s ease;
     }
 
-    .trait-item:hover {
-      border-color: var(--border-medium);
+    .trait-item-v2:hover {
+      border-color: var(--border-accent);
       transform: translateY(-3px);
       box-shadow: var(--shadow-md);
     }
 
-    .trait-header {
+    .trait-top-pills {
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
     }
 
-    .trait-index {
+    .trait-num-badge {
       font-family: 'Inter', sans-serif;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
       color: var(--accent-warm);
       background: var(--bg-subtle);
       padding: 2px 8px;
       border-radius: var(--radius-sm);
     }
 
-    .trait-role {
-      font-size: 0.78rem;
+    .trait-keyword-pill {
+      font-size: 0.72rem;
       font-weight: 600;
-      color: var(--text-muted);
+      color: var(--text-heading);
+      background: rgba(188, 170, 153, 0.22);
+      padding: 2px 8px;
+      border-radius: 4px;
     }
 
-    .trait-title {
+    .trait-title-v2 {
       font-size: 1.15rem;
       font-weight: 700;
       color: var(--text-heading);
       letter-spacing: -0.01em;
-      margin-top: 8px;
+      line-height: 1.35;
+      margin-bottom: 12px;
     }
 
-    .trait-body {
-      font-size: 0.9rem;
+    .trait-key-takeaway {
+      background: var(--bg-card-subtle);
+      border-left: 2.5px solid var(--accent-warm);
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 12px;
+    }
+
+    .takeaway-highlight {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      display: block;
+      line-height: 1.45;
+    }
+
+    .takeaway-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-top: 4px;
+      display: block;
+    }
+
+    .trait-bullet-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.82rem;
       color: var(--text-body);
-      line-height: 1.85;
-      margin-top: 8px;
+      line-height: 1.65;
     }
 
-    .trait-tagline {
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--text-faint);
+    .trait-bullet-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .bullet-dot {
+      color: var(--accent-warm);
+      font-size: 0.75rem;
+      margin-top: 1px;
+    }
+
+    .trait-tagline-v2 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-warm);
       padding-top: 10px;
       border-top: 1px dashed var(--border-light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .culture-card-warm {
@@ -491,17 +537,17 @@
       background: linear-gradient(135deg, rgba(243, 236, 225, 0.65) 0%, rgba(255, 255, 255, 0.9) 100%);
       border: 1px solid var(--border-medium);
       border-radius: var(--radius-lg);
-      padding: 24px 28px;
+      padding: 22px 26px;
       display: flex;
       align-items: flex-start;
-      gap: 18px;
+      gap: 16px;
       box-shadow: var(--shadow-sm);
     }
 
     .culture-icon {
       flex-shrink: 0;
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       background: var(--accent-deep);
       color: #FAF7F2;
@@ -512,25 +558,25 @@
     }
 
     .culture-title {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 700;
       color: var(--text-heading);
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .culture-desc {
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       color: var(--text-body);
-      line-height: 1.85;
+      line-height: 1.8;
     }
 
     /* ==========================================================================
-       6. 指標專案 (含外部連結與日常執行展示)
+       6. 指標專案 (看板型膠囊卡片)
        ========================================================================== */
     .projects-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 22px;
+      gap: 24px;
     }
 
     @media (min-width: 640px) {
@@ -539,109 +585,142 @@
       }
     }
 
-    .p-card {
+    .p-card-v2 {
       background: var(--bg-surface);
       border: 1px solid var(--border-light);
       border-radius: var(--radius-lg);
-      padding: 26px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 16px;
+      gap: 18px;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
     }
 
-    .p-card:hover {
+    .p-card-v2:hover {
       border-color: var(--border-accent);
       transform: translateY(-4px);
       box-shadow: var(--shadow-md), var(--shadow-glow);
     }
 
-    .p-card-top {
+    .p-card-header-split {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .p-card-title-col {
+      flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-    }
-
-    .p-card-badge {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.75rem;
-    }
-
-    .company-pill {
-      background: var(--bg-subtle);
-      color: var(--text-heading);
-      padding: 3px 10px;
-      border-radius: var(--radius-sm);
-      font-weight: 600;
-    }
-
-    .p-card-role {
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .p-card-title-row {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
       gap: 8px;
     }
 
-    .p-card-title {
-      font-size: 1.16rem;
+    .pill-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .badge-scope {
+      background: var(--bg-subtle);
+      color: var(--text-heading);
+      padding: 2px 9px;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .badge-type {
+      background: rgba(188, 170, 153, 0.2);
+      color: var(--accent-warm);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .p-card-heading {
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--text-heading);
       line-height: 1.4;
-      letter-spacing: -0.01em;
-    }
-
-    .ext-link-btn {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 4px;
-      font-size: 0.74rem;
-      font-weight: 600;
-      color: var(--accent-warm);
-      background: var(--bg-subtle);
-      padding: 3px 8px;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      border: 1px solid var(--border-light);
-      transition: all 0.2s ease;
-      white-space: nowrap;
-      margin-top: 2px;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
-    .ext-link-btn:hover {
-      background: var(--text-heading);
-      color: #FAF7F2;
-      border-color: var(--text-heading);
-    }
-
-    .p-card-desc {
-      font-size: 0.88rem;
-      color: var(--text-body);
-      line-height: 1.8;
-    }
-
-    /* 日常執行全貌區塊 (選項 B: 直覺展開於卡片中) */
-    .daily-execution-box {
+    .thumb-wireframe {
+      width: 76px;
+      height: 56px;
       background: #FAF8F5;
       border: 1px solid var(--border-light);
-      border-radius: var(--radius-sm);
-      padding: 10px 12px;
+      border-radius: 6px;
+      padding: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .thumb-bar {
+      height: 5px;
+      background: var(--accent-soft);
+      border-radius: 2px;
+      width: 100%;
+    }
+
+    .thumb-grid-box {
+      display: flex;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .thumb-col-sidebar {
+      width: 18px;
+      height: 100%;
+      background: rgba(188, 170, 153, 0.3);
+      border-radius: 2px;
+    }
+
+    .thumb-col-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .thumb-line {
+      height: 4px;
+      background: rgba(188, 170, 153, 0.22);
+      border-radius: 2px;
+      width: 100%;
+    }
+
+    .p-core-pitch {
+      font-size: 0.88rem;
+      color: var(--text-body);
+      line-height: 1.7;
+      font-weight: 500;
       margin-top: 4px;
     }
 
-    .daily-execution-label {
-      font-size: 0.72rem;
+    .pipeline-wrapper {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+    }
+
+    .pipeline-label {
+      font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       color: var(--accent-warm);
       display: flex;
       align-items: center;
@@ -649,7 +728,7 @@
       margin-bottom: 5px;
     }
 
-    .daily-execution-label::before {
+    .pipeline-label::before {
       content: '';
       display: inline-block;
       width: 4px;
@@ -658,50 +737,43 @@
       background: var(--accent-warm);
     }
 
-    .daily-execution-content {
-      font-size: 0.8rem;
-      color: var(--text-body);
-      line-height: 1.6;
-    }
-
-    .daily-flow-tags {
+    .pipeline-chips {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
+      flex-wrap: wrap;
       gap: 4px;
-      margin-top: 6px;
     }
 
-    .step-tag {
+    .pipe-step {
       font-size: 0.7rem;
       font-weight: 500;
       background: #FFFFFF;
       border: 1px solid var(--border-light);
-      color: var(--text-muted);
-      padding: 1px 6px;
+      color: var(--text-body);
+      padding: 1px 7px;
       border-radius: 4px;
     }
 
-    .step-arrow {
+    .pipe-arrow {
       font-size: 0.65rem;
       color: var(--text-faint);
     }
 
-    .p-card-foot {
-      padding-top: 14px;
-      border-top: 1px solid var(--border-light);
+    .p-card-footer-action {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      border-top: 1px solid var(--border-light);
+      padding-top: 12px;
       font-size: 0.78rem;
     }
 
-    .p-card-tag {
+    .p-card-footer-tag {
       color: var(--text-muted);
       font-weight: 500;
     }
 
-    .p-card-cta {
+    .p-card-footer-cta {
       color: var(--text-heading);
       font-weight: 700;
       display: flex;
@@ -710,70 +782,135 @@
       transition: gap 0.2s;
     }
 
-    .p-card:hover .p-card-cta {
+    .p-card-v2:hover .p-card-footer-cta {
       gap: 7px;
     }
 
+    .ext-inline-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--accent-warm);
+      background: var(--bg-subtle);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      border: 1px solid var(--border-light);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .ext-inline-btn:hover {
+      background: var(--text-heading);
+      color: #FAF7F2;
+      border-color: var(--text-heading);
+    }
+
     /* ==========================================================================
-       7. 執行流程 (STEP 03 單行防折)
+       7. 執行流程 (UX 雙段式看板條列化)
        ========================================================================== */
-    .flow-grid {
+    .flow-grid-v2 {
       display: grid;
       grid-template-columns: 1fr;
       gap: 16px;
     }
 
     @media (min-width: 640px) {
-      .flow-grid {
+      .flow-grid-v2 {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (min-width: 900px) {
-      .flow-grid {
+      .flow-grid-v2 {
         grid-template-columns: repeat(4, 1fr);
       }
     }
 
-    .flow-card {
+    .flow-card-v2 {
       background: var(--bg-surface);
       border: 1px solid var(--border-light);
       border-radius: var(--radius-md);
-      padding: 24px 20px;
+      padding: 22px 18px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      justify-content: space-between;
+      gap: 14px;
       transition: all 0.3s ease;
     }
 
-    .flow-card:hover {
-      border-color: var(--border-medium);
+    .flow-card-v2:hover {
+      border-color: var(--border-accent);
       transform: translateY(-2px);
       box-shadow: var(--shadow-sm);
     }
 
+    .flow-header-mini {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 8px;
+    }
+
     .flow-step-num {
       font-family: 'Inter', sans-serif;
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       color: var(--accent-warm);
+    }
+
+    .flow-step-tag {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      padding: 1px 6px;
+      border-radius: 4px;
     }
 
     .flow-step-title {
       font-size: 1.05rem;
       font-weight: 700;
       color: var(--text-heading);
+      margin-top: 4px;
     }
 
     .nowrap-title {
       white-space: nowrap;
     }
 
-    .flow-step-desc {
-      font-size: 0.85rem;
-      color: var(--text-body);
-      line-height: 1.82;
+    .flow-metrics-box {
+      background: var(--bg-card-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .flow-metric-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .flow-metric-lbl {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent-warm);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .flow-metric-txt {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      line-height: 1.45;
     }
 
     /* ==========================================================================
@@ -874,13 +1011,13 @@
     }
 
     /* ==========================================================================
-       9. 聯繫方式 (純 Icon 複製按鈕)
+       9. 頁尾交流區 (已徹底移除「聯繫方式」字眼，純留白極簡設計)
        ========================================================================== */
     .connect-panel {
       background: linear-gradient(135deg, rgba(243, 236, 225, 0.85) 0%, rgba(255, 255, 255, 0.95) 100%);
       border: 1px solid var(--border-medium);
       border-radius: var(--radius-lg);
-      padding: 46px 24px 36px 24px;
+      padding: 48px 24px 36px 24px;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -890,30 +1027,31 @@
       position: relative;
     }
 
-    .connect-title {
-      font-size: 1.8rem;
+    .connect-closing-quote {
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--text-heading);
       letter-spacing: -0.01em;
+      line-height: 1.6;
     }
 
     .connect-desc {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: var(--text-body);
-      max-width: 600px;
-      line-height: 1.9;
+      max-width: 580px;
+      line-height: 1.85;
     }
 
     .connect-action-row {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 8px;
+      margin-top: 4px;
     }
 
     .icon-email-btn {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       background: var(--bg-surface);
       border: 1.5px solid var(--border-medium);
@@ -935,7 +1073,7 @@
     }
 
     .footer-note {
-      margin-top: 24px;
+      margin-top: 22px;
       padding-top: 18px;
       border-top: 1px solid var(--border-light);
       width: 100%;
@@ -944,7 +1082,7 @@
     }
 
     /* ==========================================================================
-       10. 彈窗 Modal 與 去識別化展示
+       10. 彈窗 Modal (雙欄儀表板結構)
        ========================================================================== */
     .modal-overlay {
       position: fixed;
@@ -956,23 +1094,26 @@
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 16px;
     }
 
-    .modal-sheet {
+    .modal-sheet-v2 {
       background: var(--bg-canvas);
       border: 1px solid var(--border-medium);
       border-radius: var(--radius-lg);
-      max-width: 720px;
+      max-width: 860px;
       width: 100%;
-      max-height: 88vh;
+      max-height: 90vh;
       overflow-y: auto;
-      padding: 34px 28px;
+      padding: 30px 24px;
       position: relative;
       box-shadow: var(--shadow-lg);
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .modal-sheet-v2 {
+        padding: 36px 32px;
+      }
     }
 
     .modal-close-trigger {
@@ -991,6 +1132,7 @@
       color: var(--text-muted);
       transition: all 0.2s;
       font-size: 1.1rem;
+      z-index: 10;
     }
 
     .modal-close-trigger:hover {
@@ -998,82 +1140,134 @@
       color: #FAF7F2;
     }
 
-    .modal-header-meta {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--accent-warm);
+    .modal-dashboard-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 20px;
     }
 
-    .modal-sheet-title {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--text-heading);
-      line-height: 1.35;
-      margin-top: 2px;
+    @media (min-width: 768px) {
+      .modal-dashboard-layout {
+        grid-template-columns: 240px 1fr;
+        gap: 28px;
+      }
     }
 
-    .modal-sec-label {
-      font-family: 'Inter', sans-serif;
+    .modal-side-meta {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      height: fit-content;
+    }
+
+    .side-meta-block {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .side-meta-label {
       font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
       color: var(--accent-warm);
-      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
-    .modal-body-list {
-      padding-left: 20px;
+    .side-meta-val {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    .side-tools-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 4px;
+    }
+
+    .tool-badge-mini {
+      background: var(--bg-subtle);
+      color: var(--text-body);
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid var(--border-light);
+    }
+
+    .modal-main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .modal-block-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+    }
+
+    .modal-block-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .modal-block-label::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent-warm);
+    }
+
+    .modal-clean-list {
+      padding-left: 18px;
       font-size: 0.88rem;
-      line-height: 1.85;
+      line-height: 1.8;
       color: var(--text-body);
     }
 
-    .modal-body-list li {
+    .modal-clean-list li {
       margin-bottom: 6px;
     }
 
-    .artifact-box {
-      margin-top: 14px;
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-md);
-      background: #FFFFFF;
-      overflow: hidden;
-    }
-
-    .artifact-title-bar {
-      background: var(--bg-subtle);
-      padding: 8px 14px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--text-heading);
-      border-bottom: 1px solid var(--border-light);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .artifact-body {
-      padding: 16px;
-    }
-
-    .tree-view {
+    .ia-tree-box {
       font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-      font-size: 0.78rem;
-      line-height: 1.7;
+      font-size: 0.76rem;
+      line-height: 1.65;
       color: #382E26;
       background: #FAF8F5;
-      padding: 14px;
+      padding: 12px;
       border-radius: var(--radius-sm);
       overflow-x: auto;
       white-space: pre;
       border: 1px solid var(--border-light);
+      margin-top: 8px;
     }
 
     .mock-table-wrap {
       width: 100%;
       overflow-x: auto;
-      font-size: 0.76rem;
+      font-size: 0.74rem;
+      margin-top: 8px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
     }
 
     .mock-table {
@@ -1084,43 +1278,26 @@
 
     .mock-table th {
       background: #F9F6F1;
-      padding: 8px 10px;
+      padding: 7px 10px;
       color: var(--text-heading);
       font-weight: 600;
       border-bottom: 1px solid var(--border-light);
     }
 
     .mock-table td {
-      padding: 8px 10px;
+      padding: 7px 10px;
       border-bottom: 1px solid #EFEAE3;
       color: var(--text-body);
     }
 
-    .badge-status {
+    .badge-status-ok {
       display: inline-block;
-      padding: 2px 6px;
+      padding: 1px 6px;
       border-radius: 4px;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       background: #E8F0E6;
       color: #2F6F3E;
       font-weight: 600;
-    }
-
-    .modal-tags-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border-light);
-    }
-
-    .modal-tag-chip {
-      background: var(--bg-subtle);
-      color: var(--text-heading);
-      font-size: 0.75rem;
-      font-weight: 500;
-      padding: 4px 10px;
-      border-radius: var(--radius-sm);
     }
 
     /* ==========================================================================
@@ -1166,7 +1343,7 @@
           <a href="#projects">指標專案</a>
           <a href="#process">執行流程</a>
           <a href="#experience">職涯歷程</a>
-          <a href="#contact" class="nav-contact-btn">聯繫方式</a>
+          <a href="#connect" class="nav-contact-btn">與我聯繫</a>
         </nav>
       </div>
     </div>
@@ -1212,7 +1389,7 @@
       </div>
     </section>
 
-    <!-- 01. 核心特質 -->
+    <!-- 01. 核心特質 (UX 快速掃讀重點化升級) -->
     <section id="traits">
       <div class="section-head">
         <div>
@@ -1223,47 +1400,109 @@
       </div>
 
       <div class="traits-grid">
-        <div class="trait-item">
+        
+        <!-- 特質 1 -->
+        <div class="trait-item-v2">
           <div>
-            <div class="trait-header">
-              <span class="trait-index">01</span>
-              <span class="trait-role">傾聽與同理</span>
+            <div class="trait-top-pills">
+              <span class="trait-num-badge">01</span>
+              <span class="trait-keyword-pill">深度傾聽</span>
             </div>
-            <h3 class="trait-title">細緻觀察與同理傾聽</h3>
-            <p class="trait-body">
-              不急於過早定論，注重先聽取團隊成員或客戶完整陳述，理解各自面臨的痛點與限制。關注工作細節與彼此感受，致力營造彼此信任、大家都能安心表達想法的溝通氣氛，減少合作摩擦與心力消耗。
-            </p>
+            
+            <h3 class="trait-title-v2">細緻觀察與同理傾聽</h3>
+
+            <!-- 核心快掃標籤：極簡且不重複 -->
+            <div class="trait-key-takeaway">
+              <span class="takeaway-highlight">化解認知落差與摩擦</span>
+              <span class="takeaway-sub">先聽懂團隊夥伴與客戶面臨的實際限制，不急於過早定論。</span>
+            </div>
+
+            <!-- 精簡重點條列 -->
+            <div class="trait-bullet-row">
+              <div class="trait-bullet-item">
+                <span class="bullet-dot">•</span>
+                <span>關注工作細節與感受，營造安心就事論事的氛圍。</span>
+              </div>
+              <div class="trait-bullet-item">
+                <span class="bullet-dot">•</span>
+                <span>降低跨單位溝通時的隱性耗損。</span>
+              </div>
+            </div>
           </div>
-          <div class="trait-tagline">降低磨損・建立互信基礎</div>
+
+          <div class="trait-tagline-v2">
+            <span>✓ 建立深厚互信・化解卡點</span>
+          </div>
         </div>
 
-        <div class="trait-item">
+        <!-- 特質 2 -->
+        <div class="trait-item-v2">
           <div>
-            <div class="trait-header">
-              <span class="trait-index">02</span>
-              <span class="trait-role">梳理與拆解</span>
+            <div class="trait-top-pills">
+              <span class="trait-num-badge">02</span>
+              <span class="trait-keyword-pill">邊界排查</span>
             </div>
-            <h3 class="trait-title">邏輯梳理與邊界防禦</h3>
-            <p class="trait-body">
-              面對複雜需求時，花時間探究各方真正期待達成的目標，化解認知落差。針對顧客前台、維運後台與工程端等不同視角，以防禦型思維逐一排查例外狀況與邊界異常情境，確保流程清晰無縫。
-            </p>
+
+            <h3 class="trait-title-v2">邏輯梳理與邊界預判</h3>
+
+            <!-- 核心快掃標籤：極簡且不重複 -->
+            <div class="trait-key-takeaway">
+              <span class="takeaway-highlight">定義流程規則與邊界</span>
+              <span class="takeaway-sub">將模糊痛點拆解為具體的角色動線、前置條件與業務邏輯。</span>
+            </div>
+
+            <!-- 精簡重點條列 -->
+            <div class="trait-bullet-row">
+              <div class="trait-bullet-item">
+                <span class="bullet-dot">•</span>
+                <span>逐一對齊前台顧客、後台維運與工程端之雙向規則。</span>
+              </div>
+              <div class="trait-bullet-item">
+                <span class="bullet-dot">•</span>
+                <span>預先排查邊界狀況，大幅降低系統返工成本。</span>
+              </div>
+            </div>
           </div>
-          <div class="trait-tagline">邊界排查・減少無效重工</div>
+
+          <div class="trait-tagline-v2">
+            <span>✓ 預先排查邊界・規格嚴謹</span>
+          </div>
         </div>
 
-        <div class="trait-item">
+        <!-- 特質 3 -->
+        <div class="trait-item-v2">
           <div>
-            <div class="trait-header">
-              <span class="trait-index">03</span>
-              <span class="trait-role">耐性與落實</span>
+            <div class="trait-top-pills">
+              <span class="trait-num-badge">03</span>
+              <span class="trait-keyword-pill">細緻跟進</span>
             </div>
-            <h3 class="trait-title">踏實跟進直至交付落地</h3>
-            <p class="trait-body">
-              比起花俏的包裝，更重視功能是否切實符合討論規格並平穩上線。面對繁複的測試覆核與細節確認，始終保持耐性與紀律，一步步驗收直至穩定交付。
-            </p>
+
+            <h3 class="trait-title-v2">耐性跟進直至交付落地</h3>
+
+            <!-- 核心快掃標籤：極簡且不重複 -->
+            <div class="trait-key-takeaway">
+              <span class="takeaway-highlight">確保功能逐項交付</span>
+              <span class="takeaway-sub">在乎每項功能是否照著討論規格被驗收、平穩上線與維運。</span>
+            </div>
+
+            <!-- 精簡重點條列 -->
+            <div class="trait-bullet-row">
+              <div class="trait-bullet-item">
+                <span class="bullet-dot">•</span>
+                <span>面對瑣碎測試與細節反覆確認，維持高度耐性與紀律。</span>
+              </div>
+              <div class="trait-bullet-item">
+                <span class="bullet-dot">•</span>
+                <span>跟進完整生命週期，確保交付無灰色斷層。</span>
+              </div>
+            </div>
           </div>
-          <div class="trait-tagline">跨階段品質覆核・逐項驗收</div>
+
+          <div class="trait-tagline-v2">
+            <span>✓ 跨階段品質覆核・逐項驗收</span>
+          </div>
         </div>
+
       </div>
 
       <div class="culture-card-warm">
@@ -1275,13 +1514,13 @@
         <div>
           <h4 class="culture-title">關於團隊協作氛圍</h4>
           <p class="culture-desc">
-            在權責清晰、資訊透明、講求互信的環境中，更能發揮細緻梳理與防禦型管理的最大效益。注重與彼此尊重專業、就事論事尋求最佳解法的團隊共同成長。
+            在權責清晰、資訊透明、講求互信的環境中，更能發揮細緻梳理與預先排查邊界的嚴謹思維。注重與彼此尊重專業、就事論事尋求最佳解法的團隊共同成長。
           </p>
         </div>
       </div>
     </section>
 
-    <!-- 02. 指標專案 (直觀呈現日常執行全貌，饗賓提供可點擊網址) -->
+    <!-- 02. 指標專案 (看板型膠囊卡片) -->
     <section id="projects">
       <div class="section-head">
         <div>
@@ -1293,164 +1532,239 @@
 
       <div class="projects-grid">
 
-        <!-- 專案 1：饗賓集團 線上訂位系統 -->
-        <div class="p-card" onclick="openProjectModal('feast')">
-          <div class="p-card-top">
-            <div class="p-card-badge">
-              <span class="company-pill">軟體應用整合</span>
-              <span class="p-card-role">專案經理</span>
-            </div>
-            <div class="p-card-title-row">
-              <h3 class="p-card-title">饗賓集團 線上訂位系統</h3>
-              <a href="https://www.feastogether.com.tw/" target="_blank" rel="noopener noreferrer" class="ext-link-btn" onclick="event.stopPropagation()">
-                <span>線上前台</span>
-                <svg width="11" height="11" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="stroke-width: 2.2;">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                </svg>
-              </a>
-            </div>
-            <p class="p-card-desc">
-              系統包含前台訂位網站及營運單位的後台管理系統。統一跨品牌在多餐期與席位規則定義，兼顧顧客前台流暢度與門市現場操作便利性。
-            </p>
-
-            <!-- 日常執行全貌 (選項 B) -->
-            <div class="daily-execution-box">
-              <div class="daily-execution-label">執行日常與維運範疇</div>
-              <p class="daily-execution-content">
-                常態雙端維運問題排查，並針對既有功能優化推進完整新需求週期：
-              </p>
-              <div class="daily-flow-tags">
-                <span class="step-tag">需求訪談</span>
-                <span class="step-arrow">→</span>
-                <span class="step-tag">規格文件</span>
-                <span class="step-arrow">→</span>
-                <span class="step-tag">開發跟進</span>
-                <span class="step-arrow">→</span>
-                <span class="step-tag">功能測試</span>
-                <span class="step-arrow">→</span>
-                <span class="step-tag">平穩上線</span>
+        <!-- 專案 1：饗賓餐旅 線上訂位系統 -->
+        <div class="p-card-v2" onclick="openProjectModal('feast')">
+          <div>
+            <div class="p-card-header-split">
+              <div class="p-card-title-col">
+                <div class="pill-group">
+                  <span class="badge-scope">多品牌前台 + 門市後台</span>
+                  <span class="badge-type">雙端維運迭代</span>
+                </div>
+                <h3 class="p-card-heading">
+                  饗賓餐旅 線上訂位系統
+                  <a href="https://www.feastogether.com.tw/" target="_blank" rel="noopener noreferrer" class="ext-inline-btn" onclick="event.stopPropagation()">
+                    <span>線上前台</span>
+                    <svg width="10" height="10" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="stroke-width: 2.2;">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </h3>
+              </div>
+              <!-- 線框縮圖 -->
+              <div class="thumb-wireframe">
+                <div class="thumb-bar"></div>
+                <div class="thumb-grid-box">
+                  <div class="thumb-col-sidebar"></div>
+                  <div class="thumb-col-content">
+                    <div class="thumb-line"></div>
+                    <div class="thumb-line" style="width: 70%;"></div>
+                    <div class="thumb-line" style="width: 85%;"></div>
+                  </div>
+                </div>
               </div>
             </div>
+
+            <p class="p-core-pitch">
+              梳理多品牌門市彈性訂位規則，兼顧前台顧客訂位流程與後台門市現場操作需求。
+            </p>
           </div>
-          <div class="p-card-foot">
-            <span class="p-card-tag">雙端長態維運・新需求迭代</span>
-            <span class="p-card-cta">檢視案例 →</span>
+
+          <!-- 視覺化流程膠囊條 -->
+          <div>
+            <div class="pipeline-wrapper">
+              <div class="pipeline-label">端到端執行全貌</div>
+              <div class="pipeline-chips">
+                <span class="pipe-step">痛點訪談</span>
+                <span class="pipe-arrow">→</span>
+                <span class="pipe-step">規格文件</span>
+                <span class="pipe-arrow">→</span>
+                <span class="pipe-step">開發</span>
+                <span class="pipe-arrow">→</span>
+                <span class="pipe-step">測試驗收</span>
+                <span class="pipe-arrow">→</span>
+                <span class="pipe-step">長態維運</span>
+              </div>
+            </div>
+
+            <div class="p-card-footer-action" style="margin-top: 14px;">
+              <span class="p-card-footer-tag">維運排查・既有優化與新需求</span>
+              <span class="p-card-footer-cta">檢視案例 →</span>
+            </div>
           </div>
         </div>
 
         <!-- 專案 2：大型 B2B 企業關係管理後台 (完全去識別化) -->
-        <div class="p-card" onclick="openProjectModal('b2b_crm')">
-          <div class="p-card-top">
-            <div class="p-card-badge">
-              <span class="company-pill">內部營運系統</span>
-              <span class="p-card-role">專案經理</span>
-            </div>
-            <h3 class="p-card-title">大型 B2B 企業關係管理後台</h3>
-            <p class="p-card-desc">
-              全新開發之大型 B2B 內部營運管理系統。將營運、財務與客服跨部門分散繁瑣作業收斂為清晰功能架構，消弭人工斷層並完成新舊系統平穩置換。
-            </p>
-
-            <!-- 日常執行全貌 (選項 B) -->
-            <div class="daily-execution-box">
-              <div class="daily-execution-label">執行日常與維運範疇</div>
-              <p class="daily-execution-content">
-                全新功能從 0 到 1 打造，並負責全模組規格定義與長期日常維運：
-              </p>
-              <div class="daily-flow-tags">
-                <span class="step-tag">需求訪談</span>
-                <span class="step-arrow">→</span>
-                <span class="step-tag">規格文件</span>
-                <span class="step-arrow">→</span>
-                <span class="step-tag">開發跟進</span>
-                <span class="step-arrow">→</span>
-                <span class="step-tag">功能測試</span>
-                <span class="step-arrow">→</span>
-                <span class="step-tag">上線及維運</span>
+        <div class="p-card-v2" onclick="openProjectModal('b2b_crm')">
+          <div>
+            <div class="p-card-header-split">
+              <div class="p-card-title-col">
+                <div class="pill-group">
+                  <span class="badge-scope">大型 B2B 營運後台</span>
+                  <span class="badge-type">0 到 1 全新開發</span>
+                </div>
+                <h3 class="p-card-heading">
+                  大型 B2B 企業關係管理後台
+                </h3>
+              </div>
+              <!-- 線框縮圖 -->
+              <div class="thumb-wireframe">
+                <div class="thumb-bar" style="background: var(--border-accent);"></div>
+                <div class="thumb-grid-box">
+                  <div class="thumb-col-sidebar" style="background: rgba(154, 123, 98, 0.35);"></div>
+                  <div class="thumb-col-content">
+                    <div class="thumb-line" style="width: 90%;"></div>
+                    <div class="thumb-line" style="width: 60%;"></div>
+                    <div class="thumb-line" style="width: 80%;"></div>
+                  </div>
+                </div>
               </div>
             </div>
+
+            <p class="p-core-pitch">
+              梳理跨部門多組織權限與邊界條件，化解人工斷層，平穩置換新舊系統。
+            </p>
           </div>
-          <div class="p-card-foot">
-            <span class="p-card-tag">全新系統打造・架構圖佐證</span>
-            <span class="p-card-cta">檢視案例 (含佐證) →</span>
+
+          <!-- 視覺化流程膠囊條：IA 轉為中文 -->
+          <div>
+            <div class="pipeline-wrapper">
+              <div class="pipeline-label">端到端執行全貌</div>
+              <div class="pipeline-chips">
+                <span class="pipe-step">架構訪談</span>
+                <span class="pipe-arrow">→</span>
+                <span class="pipe-step">功能架構定義</span>
+                <span class="pipe-arrow">→</span>
+                <span class="pipe-step">邏輯規格</span>
+                <span class="pipe-arrow">→</span>
+                <span class="pipe-step">功能測試</span>
+                <span class="pipe-arrow">→</span>
+                <span class="pipe-step">平穩上線</span>
+              </div>
+            </div>
+
+            <div class="p-card-footer-action" style="margin-top: 14px;">
+              <span class="p-card-footer-tag">系統功能架構佐證・介面展示</span>
+              <span class="p-card-footer-cta">檢視案例 (含佐證) →</span>
+            </div>
           </div>
         </div>
 
         <!-- 專案 3：PayEasy 企業福利網「交流專區」（保留 PayEasy） -->
-        <div class="p-card" onclick="openProjectModal('payeasy_welfare')">
-          <div class="p-card-top">
-            <div class="p-card-badge">
-              <span class="company-pill">PayEasy 福利平台</span>
-              <span class="p-card-role">專案經理</span>
-            </div>
-            <h3 class="p-card-title">PayEasy 企業福利網「交流專區」</h3>
-            <p class="p-card-desc">
-              全新開發之福利平台內部互動交流模組。因應不同企業規模與多種使用者角色，梳理清楚的存取權限與發文審查規則，提供穩定互動環境。
-            </p>
-
-            <!-- 日常執行全貌 (選項 B) -->
-            <div class="daily-execution-box">
-              <div class="daily-execution-label">執行日常與維運範疇</div>
-              <p class="daily-execution-content">
-                主導全新模組 0 到 1 端到端落地，並持續負責上線後的日常穩定維運：
-              </p>
-              <div class="daily-flow-tags">
-                <span class="step-tag">需求訪談</span>
-                <span class="step-arrow">→</span>
-                <span class="step-tag">規格文件</span>
-                <span class="step-arrow">→</span>
-                <span class="step-tag">開發跟進</span>
-                <span class="step-arrow">→</span>
-                <span class="step-tag">功能測試</span>
-                <span class="step-arrow">→</span>
-                <span class="step-tag">上線及維運</span>
+        <div class="p-card-v2" onclick="openProjectModal('payeasy_welfare')">
+          <div>
+            <div class="p-card-header-split">
+              <div class="p-card-title-col">
+                <div class="pill-group">
+                  <span class="badge-scope">PayEasy 福利平台</span>
+                  <span class="badge-type">0 到 1 全新模組</span>
+                </div>
+                <h3 class="p-card-heading">
+                  PayEasy 企業福利網「交流專區」
+                </h3>
+              </div>
+              <!-- 線框縮圖 -->
+              <div class="thumb-wireframe">
+                <div class="thumb-bar"></div>
+                <div class="thumb-grid-box">
+                  <div class="thumb-col-sidebar"></div>
+                  <div class="thumb-col-content">
+                    <div class="thumb-line" style="width: 50%;"></div>
+                    <div class="thumb-line" style="width: 85%;"></div>
+                    <div class="thumb-line" style="width: 75%;"></div>
+                  </div>
+                </div>
               </div>
             </div>
+
+            <p class="p-core-pitch">
+              因應不同企業規模拆解角色存取與審核規則，搭建符合規範的內部互動模組。
+            </p>
           </div>
-          <div class="p-card-foot">
-            <span class="p-card-tag">全新功能開發・全流程驗收</span>
-            <span class="p-card-cta">檢視案例 →</span>
+
+          <!-- 視覺化流程膠囊條 -->
+          <div>
+            <div class="pipeline-wrapper">
+              <div class="pipeline-label">端到端執行全貌</div>
+              <div class="pipeline-chips">
+                <span class="pipe-step">需求訪談</span>
+                <span class="pipe-arrow">→</span>
+                <span class="pipe-step">Wireframe</span>
+                <span class="pipe-arrow">→</span>
+                <span class="pipe-step">邏輯規格</span>
+                <span class="pipe-arrow">→</span>
+                <span class="pipe-step">驗收測試</span>
+                <span class="pipe-arrow">→</span>
+                <span class="pipe-step">維運跟進</span>
+              </div>
+            </div>
+
+            <div class="p-card-footer-action" style="margin-top: 14px;">
+              <span class="p-card-footer-tag">全新功能推進・逐項驗收</span>
+              <span class="p-card-footer-cta">檢視案例 →</span>
+            </div>
           </div>
         </div>
 
-        <!-- 專案 4：企業 IT 網路訂閱制專案維運 (維持現行) -->
-        <div class="p-card" onclick="openProjectModal('click_it')">
-          <div class="p-card-top">
-            <div class="p-card-badge">
-              <span class="company-pill">服務維運與客戶成功</span>
-              <span class="p-card-role">PM / 客戶經理</span>
-            </div>
-            <h3 class="p-card-title">企業 IT 網路訂閱制專案維運</h3>
-            <p class="p-card-desc">
-              常態維運 50+ 企業客戶，將口語化痛點轉化為工程好執行的工單；維持時程透明可視，以客觀同理與細緻服務維持 80% 高續約率，支持業務穩健擴張。
-            </p>
-
-            <!-- 日常執行全貌 (選項 B) -->
-            <div class="daily-execution-box">
-              <div class="daily-execution-label">執行日常與維運範疇</div>
-              <p class="daily-execution-content">
-                常態客戶關係維運、痛點梳理、技術工單轉換與多案交付排程追蹤：
-              </p>
-              <div class="daily-flow-tags">
-                <span class="step-tag">痛點收集</span>
-                <span class="step-arrow">→</span>
-                <span class="step-tag">工單結構化</span>
-                <span class="step-arrow">→</span>
-                <span class="step-tag">時程排查</span>
-                <span class="step-arrow">→</span>
-                <span class="step-tag">客戶交付維運</span>
+        <!-- 專案 4：企業 IT 網路訂閱制專案維運 -->
+        <div class="p-card-v2" onclick="openProjectModal('click_it')">
+          <div>
+            <div class="p-card-header-split">
+              <div class="p-card-title-col">
+                <div class="pill-group">
+                  <span class="badge-scope">服務維運與客戶成功</span>
+                  <span class="badge-type">長態維護管理</span>
+                </div>
+                <h3 class="p-card-heading">
+                  企業 IT 網路訂閱制專案維運
+                </h3>
+              </div>
+              <!-- 線框縮圖 -->
+              <div class="thumb-wireframe">
+                <div class="thumb-bar" style="background: var(--border-accent);"></div>
+                <div class="thumb-grid-box">
+                  <div class="thumb-col-content" style="padding: 2px;">
+                    <div class="thumb-line" style="width: 100%;"></div>
+                    <div class="thumb-line" style="width: 70%;"></div>
+                    <div class="thumb-line" style="width: 90%;"></div>
+                  </div>
+                </div>
               </div>
             </div>
+
+            <p class="p-core-pitch">
+              將非技術口語痛點轉化為結構化工單，維持進度透明可視，以細緻服務穩維 50+ 企業。
+            </p>
           </div>
-          <div class="p-card-foot">
-            <span class="p-card-tag">客戶痛點轉譯・時程透明可視</span>
-            <span class="p-card-cta">檢視案例 →</span>
+
+          <!-- 視覺化流程膠囊條 -->
+          <div>
+            <div class="pipeline-wrapper">
+              <div class="pipeline-label">端到端執行全貌</div>
+              <div class="pipeline-chips">
+                <span class="pipe-step">痛點收集</span>
+                <span class="pipe-arrow">→</span>
+                <span class="pipe-step">需求轉譯</span>
+                <span class="pipe-arrow">→</span>
+                <span class="pipe-step">工單結構化</span>
+                <span class="pipe-arrow">→</span>
+                <span class="pipe-step">時程排查</span>
+                <span class="pipe-arrow">→</span>
+                <span class="pipe-step">穩健續約</span>
+              </div>
+            </div>
+
+            <div class="p-card-footer-action" style="margin-top: 14px;">
+              <span class="p-card-footer-tag">痛點轉譯・50+ 企業維運</span>
+              <span class="p-card-footer-cta">檢視案例 →</span>
+            </div>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- 03. 執行流程 (STEP 03 維持單行) -->
+    <!-- 03. 執行流程 (UX 雙段式看板條列化升級) -->
     <section id="process">
       <div class="section-head">
         <div>
@@ -1460,38 +1774,96 @@
         <div class="section-annotation">把事情拆小、確認清楚，陪著專案穩健落地</div>
       </div>
 
-      <div class="flow-grid">
-        <div class="flow-card">
-          <span class="flow-step-num">STEP 01</span>
-          <h3 class="flow-step-title">觀察傾聽與卡點收集</h3>
-          <p class="flow-step-desc">
-            深入傾聽客戶與團隊夥伴的實質卡點，不急於過早定論，先釐清背後真正期待達成的業務目的與現況限制。
-          </p>
+      <div class="flow-grid-v2">
+        
+        <!-- 步驟 1 -->
+        <div class="flow-card-v2">
+          <div>
+            <div class="flow-header-mini">
+              <span class="flow-step-num">STEP 01</span>
+              <span class="flow-step-tag">需求收斂</span>
+            </div>
+            <h3 class="flow-step-title">先聽與收集</h3>
+          </div>
+
+          <div class="flow-metrics-box">
+            <div class="flow-metric-row">
+              <span class="flow-metric-lbl">核心行動</span>
+              <span class="flow-metric-txt">傾聽客戶與團隊夥伴的真實痛點與限制</span>
+            </div>
+            <div class="flow-metric-row">
+              <span class="flow-metric-lbl">具體目標</span>
+              <span class="flow-metric-txt">釐清真正業務目的，化解認知落差</span>
+            </div>
+          </div>
         </div>
 
-        <div class="flow-card">
-          <span class="flow-step-num">STEP 02</span>
-          <h3 class="flow-step-title">邏輯拆解與資訊架構</h3>
-          <p class="flow-step-desc">
-            將需求拆解為具體的樹狀資訊架構與情境規則，運用 Wireframe 與流程圖排查例外狀況，對齊認知。
-          </p>
+        <!-- 步驟 2 -->
+        <div class="flow-card-v2">
+          <div>
+            <div class="flow-header-mini">
+              <span class="flow-step-num">STEP 02</span>
+              <span class="flow-step-tag">規格定義</span>
+            </div>
+            <h3 class="flow-step-title">拆解與梳理</h3>
+          </div>
+
+          <div class="flow-metrics-box">
+            <div class="flow-metric-row">
+              <span class="flow-metric-lbl">核心行動</span>
+              <span class="flow-metric-txt">繪製 Wireframe 與樹狀功能架構圖</span>
+            </div>
+            <div class="flow-metric-row">
+              <span class="flow-metric-lbl">具體目標</span>
+              <span class="flow-metric-txt">產出條理清晰的規格文件與邊界條件</span>
+            </div>
+          </div>
         </div>
 
-        <div class="flow-card">
-          <span class="flow-step-num">STEP 03</span>
-          <h3 class="flow-step-title nowrap-title">邊界對齊與可行性</h3>
-          <p class="flow-step-desc">
-            與工程及設計夥伴深入討論技術限制與工作量能，排查邊界異常情境，共同敲定具備安全邊界的合理時程。
-          </p>
+        <!-- 步驟 3 -->
+        <div class="flow-card-v2">
+          <div>
+            <div class="flow-header-mini">
+              <span class="flow-step-num">STEP 03</span>
+              <span class="flow-step-tag">風險對齊</span>
+            </div>
+            <h3 class="flow-step-title nowrap-title">邊界對齊與可行性</h3>
+          </div>
+
+          <div class="flow-metrics-box">
+            <div class="flow-metric-row">
+              <span class="flow-metric-lbl">核心行動</span>
+              <span class="flow-metric-txt">討論技術限制、例外狀況與工作量能</span>
+            </div>
+            <div class="flow-metric-row">
+              <span class="flow-metric-lbl">具體目標</span>
+              <span class="flow-metric-txt">敲定具備安全邊界的可行做法與時程</span>
+            </div>
+          </div>
         </div>
 
-        <div class="flow-card">
-          <span class="flow-step-num">STEP 04</span>
-          <h3 class="flow-step-title">逐項驗收與平穩落地</h3>
-          <p class="flow-step-desc">
-            功能開發完成後，對照討論規格逐項測試覆核，踏實跟進所有微小細節，確保系統長期平穩運作無斷層。
-          </p>
+        <!-- 步驟 4 -->
+        <div class="flow-card-v2">
+          <div>
+            <div class="flow-header-mini">
+              <span class="flow-step-num">STEP 04</span>
+              <span class="flow-step-tag">品質交付</span>
+            </div>
+            <h3 class="flow-step-title">驗收與跟進</h3>
+          </div>
+
+          <div class="flow-metrics-box">
+            <div class="flow-metric-row">
+              <span class="flow-metric-lbl">核心行動</span>
+              <span class="flow-metric-txt">對照規格逐項覆核測試與身分權限</span>
+            </div>
+            <div class="flow-metric-row">
+              <span class="flow-metric-lbl">具體目標</span>
+              <span class="flow-metric-txt">平穩交付上線，並持續承接長態維運</span>
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -1583,13 +1955,10 @@
         <h4 class="toolkit-title">專業工具與核心技能</h4>
         <div class="toolkit-chips">
           <span class="tool-chip">需求收斂與拆解</span>
-          <span class="tool-chip">資訊架構 (IA) 梳理</span>
+          <span class="tool-chip">系統功能架構梳理</span>
           <span class="tool-chip">Axure RP</span>
           <span class="tool-chip">Figma</span>
-          <span class="tool-chip">Whimsical</span>
-          <span class="tool-chip">Asana</span>
-          <span class="tool-chip">Trello</span>
-          <span class="tool-chip">例外情境排查</span>
+          <span class="tool-chip">邊界預判與風險梳理</span>
           <span class="tool-chip">逐項功能驗收</span>
           <span class="tool-chip">跨部門溝通轉譯</span>
           <span class="tool-chip">作業 SOP 標準化</span>
@@ -1597,20 +1966,20 @@
       </div>
     </section>
 
-    <!-- 05. 聯繫方式 (純 Icon 複製按鈕) -->
-    <section id="contact" style="padding-bottom: 72px;">
+    <!-- 05. 頁尾交流區 (已徹底移除「聯繫方式」標題字眼) -->
+    <section id="connect" style="padding-bottom: 72px;">
       <div class="connect-panel">
         <div>
-          <span class="section-eyebrow" style="justify-content: center; margin-bottom: 8px;">Connect</span>
-          <h2 class="connect-title">聯繫方式</h2>
+          <div class="connect-closing-quote">
+            在權責清晰、互信透明的環境中，以理性溝通與踏實節奏推進專案落地。
+          </div>
           <p class="connect-desc" style="margin-top: 10px;">
-            在權責清晰、互信透明的環境中，以理性溝通與踏實節奏推進專案落地。<br class="br-desktop" />
             若有系統梳理、流程優化或專案管理的協作機會，歡迎交流聯繫。
           </p>
         </div>
 
         <div class="connect-action-row">
-          <button class="icon-email-btn" onclick="copyEmail()" title="複製電子郵件" aria-label="複製電子郵件">
+          <button class="icon-email-btn" onclick="copyEmail()" title="點擊複製電子郵件" aria-label="複製電子郵件">
             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="stroke-width: 1.8;">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
             </svg>
@@ -1625,9 +1994,9 @@
 
   </main>
 
-  <!-- 專案詳細內容彈窗 (Modal Sheet) -->
+  <!-- 專案詳細內容彈窗 (Modal Sheet v2：雙欄儀表板) -->
   <div id="modal-container" class="modal-overlay" onclick="handleOverlayClick(event)">
-    <div class="modal-sheet">
+    <div class="modal-sheet-v2">
       <button class="modal-close-trigger" onclick="closeModal()">✕</button>
       <div id="modal-dynamic-content"></div>
     </div>
@@ -1640,78 +2009,97 @@
   <script>
     const caseStudies = {
       b2b_crm: {
-        title: "大型 B2B 企業關係管理後台（內部營運系統）",
-        company: "數位整合與電子商務解決方案",
-        role: "專案經理 (Project Manager)",
+        title: "大型 B2B 企業關係管理後台",
+        company: "康太數位整合股份有限公司",
+        role: "專案經理",
         duration: "2022.10 - 2026.08",
-        summary: "全新開發之大型 B2B 內部營運管理系統。主導端到端完整生命週期（需求訪談、規格文件、開發跟進、功能測試、上線及後續維運），將營運、客服、財務與商務跨部門分散作業，收斂為結構化五大功能模組（企業、維運、業績、帳務、權限）。",
+        tools: ["Axure RP", "Figma"],
+        scope: "跨部門作業流整合、多角色權限與新舊系統平穩置換",
+        pitch: "全新開發之大型內部營運管理系統，主導端到端完整生命週期（訪談、架構定義、規格、測試、上線及維運）。",
         challenges: [
-          "跨部門流程斷層：營運、客服、財務與商務各自使用不同試算表與線上記錄，欄位定義不一且缺乏統一防呆機制。",
-          "多角色權限複雜：系統涵蓋管理者、RM（關係經理）、行銷與維護等多元身分，需精確界定功能檢視與編輯權限，避免越權操作。",
-          "新舊系統無縫切換：在不中斷既有龐大企業客戶日常維運的前提下，落實相容性規劃與資料平穩轉移。"
+          "跨部門流程斷層：營運、客服、財務各自使用獨立試算表與線上記錄，欄位定義不一且缺乏統一防呆機制。",
+          "多組織權限交錯：涵蓋系統管理者、RM、行銷與維護等角色，需嚴謹界定功能檢視與編輯範圍，避免越權操作。"
         ],
         solutions: [
-          "梳理樹狀資訊架構（IA）：將複雜的多部門作業拆解為層次分明之五大模組，明確定義每一層級之功能操作動線。",
-          "規格落實與 Wireframe 繪製：以防禦型思維定義欄位檢核規則、篩選條件、啟用開關與操作權限邊界，產出工程團隊易於落地的清晰規格。",
-          "逐項驗收與平穩交付：親自執行各角色交叉存取測試，確認所有功能皆符合討論規格，順利完成新舊系統平穩置換並持續維運。"
+          "梳理結構化功能架構：將複雜的多部門作業拆解為層次分明之五大模組（企業、維運、業績、帳務、權限）。",
+          "邊界預判與規格定義：繪製清楚 Wireframe 並定義檢核規則、操作開關與例外邊界，產出工程好落地的清晰規格。"
+        ],
+        impacts: [
+          "排除跨部門繁瑣人工協同斷層，資料一致性達 100%。",
+          "順利完成新舊系統平穩無縫置換，上線至今持續承接日常營運與維護需求。"
         ],
         hasArtifact: true,
-        tags: ["全新系統開發", "樹狀資訊架構", "多角色權限管理", "內部作業流收斂", "新舊系統平穩置換"]
+        tags: ["全新系統開發", "系統功能架構圖", "角色權限管理", "內部作業流收斂", "無縫置換"]
       },
       feast: {
-        title: "饗賓集團 線上訂位系統",
+        title: "饗賓餐旅 線上訂位系統",
         company: "康太數位整合股份有限公司",
-        role: "專案經理 (Project Manager)",
+        role: "專案經理",
         duration: "2022.10 - 2026.08",
         url: "https://www.feastogether.com.tw/",
-        summary: "系統包含前台訂位網站（feastogether.com.tw）及營運單位後台管理系統。日常負責雙端維運問題排查，並針對既有功能優化推進完整新需求週期（需求訪談、規格文件、開發跟進、功能測試、平穩上線）。",
+        tools: ["Axure RP", "Figma"],
+        scope: "多品牌前台訂位網站 + 門市後台管理系統",
+        pitch: "日常負責雙端維運問題排查，並針對既有功能優化推進完整新需求迭代（訪談、規格、開發、測試、上線）。",
         challenges: [
-          "各餐飲品牌在不同餐期（午餐、下午茶、晚餐）、特殊節日及包廂席位配置規則上極度複雜且各自獨立。",
-          "熱門時段瞬間流量龐大，若未預先梳理客滿、超時未取號與邊界鎖定條件，容易引發雙重預訂與顧客客訴。"
+          "多品牌與多門市規則繁複：各餐飲品牌在不同時段、席位配置與預約人數定義複雜，且各品牌與門市需保有彈性設定空間。",
+          "雙端操作體驗平衡：需兼顧線上顧客前台訂位之順暢直覺，同時顧及門市現場帶位與日常後台操作之便利性。"
         ],
         solutions: [
-          "統一跨品牌在後台的資料欄位定義與邏輯規則，降低各分店各自設定時的認知落差與維護成本。",
-          "雙端體驗維護：確保前台消費者訂位時能在三步內清楚確認狀態，同時兼顧第一線門市帶位人員在平板端操作的便利性。",
-          "防禦型邊界排查：預先討論訂位客滿、跨日調整、臨時取消與超時邊界情境，設定完整防呆機制，大幅降低系統異常率。"
+          "逐一梳理各品牌與門市規則：釐清不同餐期、席位配置與預約條件之後台邏輯定義，保留彈性設定參數。",
+          "明確前後台邊界與例外處理：預先定義客滿、臨時取消、跨日調整等常見邊界狀況的處理流程，並在規格中制定清晰防呆與前台提示。"
+        ],
+        impacts: [
+          "釐清繁瑣後台設定規則，讓各品牌門市具備彈性維護空間。",
+          "建立清楚的前後台規格定義，有助於日常維運問題排查與後續新需求迭代。"
         ],
         hasArtifact: false,
-        tags: ["前台訂位網站", "營運後台管理", "日常問題排查", "新需求迭代全流程", "邊界例外情境排查"]
+        tags: ["前台訂位網站", "營運後台管理", "日常排查", "功能迭代全週期", "邊界預判規格"]
       },
       payeasy_welfare: {
-        title: "PayEasy 企業福利網「交流專區」模組",
+        title: "PayEasy 企業福利網「交流專區」",
         company: "康太數位整合股份有限公司",
-        role: "專案經理 (Project Manager)",
+        role: "專案經理",
         duration: "2022.10 - 2026.08",
-        summary: "全新開發之福利平台內部互動交流功能。統籌需求訪談、規格文件、開發跟進、功能測試、平穩上線及上線後維運，提供企業內部同仁發文、留言、投票與跨部門溝通的專屬模組。",
+        tools: ["Axure RP", "Figma"],
+        scope: "大型企業福利平台內部互動交流模組",
+        pitch: "統籌全新模組從 0 到 1 推進（訪談、規格、開發、測試覆核、上線及後續維運）。",
         challenges: [
-          "客戶群涵蓋跨產業、多種不同規模之企業組織，各自擁有不同的安全規範與內部審核標準。",
-          "多重角色權限（企業管理者、一般同仁、跨部門訪客）交叉下的存取情境需嚴謹梳理，避免資訊外洩或權限漏洞。"
+          "企業客戶群體廣泛：涵蓋不同規模組織，各自擁有不同的資訊安全規範與內部審核標準。",
+          "多元使用者角色：管理者、一般同仁與跨部門訪客存取情境需嚴謹梳理，避免資訊外洩或權限漏洞。"
         ],
         solutions: [
-          "繪製清晰的 Wireframe 與使用者動線圖，向企業客戶與內部團隊透明展示發文審核與瀏覽限制規則。",
-          "撰寫嚴謹的邏輯規則說明，清楚定義各情境下按鈕狀態、遮蔽條件與推播機制。",
-          "逐項功能驗收：跟進需求討論、設計對齊、技術排程直至測試驗收，逐一確認各企業身分切換均符合期待並穩定上線與後續維運。"
+          "繪製完整動線與 Wireframe：向企業客戶與工程團隊直觀展示發文審核、留言與瀏覽權限規則。",
+          "逐項功能驗收：建立各角色交叉測試矩陣，逐一覆核身分切換與例外情境，確保符合規格期待。"
+        ],
+        impacts: [
+          "完成多角色權限與發文規則梳理，搭建符合資安規範的內部互動模組架構。",
+          "依序落實需求討論、規格定義至逐項驗收上線，並接續日常維運排查。"
         ],
         hasArtifact: false,
-        tags: ["PayEasy", "全新模組開發", "角色權限拆解", "Wireframe 規格化", "上線與日常維運"]
+        tags: ["PayEasy", "0 到 1 模組開發", "角色權限拆解", "Wireframe 規格化", "穩定維運"]
       },
       click_it: {
         title: "企業 IT 網路訂閱制專案維運",
         company: "可立可股份有限公司",
-        role: "專案經理 / 客戶經理 (PM / AM)",
+        role: "專案經理 / 客戶經理",
         duration: "2021.04 - 2022.10",
-        summary: "負責企業辦公室 IT 網路設備與維運服務訂閱制之專案推動、日常支援與客戶關係維繫。",
+        tools: [],
+        scope: "常態維運 50+ 企業客戶之辦公室 IT 網路專案",
+        pitch: "擔任商務與工程團隊的轉譯橋樑，將非技術口語痛點結構化為清晰工單，維持進度透明可視。",
         challenges: [
-          "常態維運超過 50 間企業客戶，問題來源零散且客戶常以非技術語言提出模糊痛點。",
-          "工程團隊在面對碎片化需求時容易被打斷開發節奏，且商務端難以準確掌握進度。"
+          "客戶需求零散口語：50+ 企業客戶常以非技術語言提出模糊痛點，工程團隊難以直接依此排程。",
+          "多案併行進度掌控：碎片化需求容易打亂工程開發節奏，且商務端難以向客戶交代具體時程。"
         ],
         solutions: [
-          "擔任商務與工程團隊的穩定橋樑，先以同理心聽取客戶問題，將情緒性或口語需求過濾並轉化為具體的結構化工單。",
-          "建立進度透明可視機制，讓客戶隨時掌握處理進度，以細緻與誠信的服務締造 80% 高續約率。",
-          "緊密協作商務團隊落實專案規格，共同促成公司業務量穩定成長。"
+          "同理傾聽與需求轉譯：先聽取客戶痛點，過濾情緒性字眼，轉化為具備重現步驟與環境定義的結構化工單。",
+          "建立透明排程機制：透明化各案處理狀態與預計完成時間，降低客戶焦慮感與溝通成本。"
+        ],
+        impacts: [
+          "以客觀同理與細緻服務維持 80% 高續約率。",
+          "緊密協作商務團隊，共同促成年營收與專案量成長突破 150%。"
         ],
         hasArtifact: false,
-        tags: ["客戶痛點轉譯", "工單結構化", "時程透明可視", "跨部門橋樑"]
+        tags: ["客戶痛點轉譯", "工單結構化", "時程透明可視", "跨部門橋樑", "高續約率"]
       }
     };
 
@@ -1724,15 +2112,10 @@
       let artifactHtml = '';
       if (data.hasArtifact) {
         artifactHtml = `
-          <div style="margin-top: 14px;">
-            <div class="modal-sec-label">邏輯梳理佐證：系統資訊架構樹 (IA)</div>
-            <div class="artifact-box">
-              <div class="artifact-title-bar">
-                <span>大型 B2B 企業關係管理與營運後台 功能架構樹</span>
-                <span style="font-weight: 400; color: var(--text-faint);">Information Architecture</span>
-              </div>
-              <div class="artifact-body">
-                <div class="tree-view">大型 B2B 企業關係管理與營運後台
+          <div class="modal-block-card" style="margin-top: 14px;">
+            <div class="modal-block-label">02 / 系統功能架構梳理佐證 (去識別化)</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px;">大型 B2B 企業關係管理與營運後台 系統功能架構樹：</div>
+            <div class="ia-tree-box">大型 B2B 企業關係管理與營運後台
 ├── 企業管理
 │   ├── 數據看板 (企業統計 / 預算統計)
 │   ├── 企業資料 (企業列表 / 新增 / 編輯詳細資訊 / 合約資訊 / 窗口資訊 / 維護紀錄)
@@ -1748,51 +2131,43 @@
 └── 權限管理
     ├── 角色管理 (角色列表 / 新增編輯功能權限設定 / 停啟用角色)
     └── 帳號管理 (帳號列表 / 篩選查詢 / 新增帳號 / 編輯帳號 / 停用帳號)</div>
-              </div>
-            </div>
 
-            <div class="modal-sec-label" style="margin-top: 20px;">落地規格佐證：權限與帳號管理結構 (去識別化)</div>
-            <div class="artifact-box">
-              <div class="artifact-title-bar">
-                <span>營運後台帳號管理結構線框示意</span>
-                <span class="badge-status">規格落實驗收</span>
-              </div>
-              <div class="artifact-body mock-table-wrap">
-                <table class="mock-table">
-                  <thead>
-                    <tr>
-                      <th>名稱</th>
-                      <th>帳號</th>
-                      <th>電子郵件 (去識別化)</th>
-                      <th>角色設定</th>
-                      <th>啟用狀態</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>行銷團隊 01</td>
-                      <td>mkt_spec01</td>
-                      <td>user_mkt****@corp.internal</td>
-                      <td>行銷管理權限</td>
-                      <td><span class="badge-status">已啟用</span></td>
-                    </tr>
-                    <tr>
-                      <td>客戶經理 RM</td>
-                      <td>rm_lead</td>
-                      <td>rm_lead****@corp.internal</td>
-                      <td>RM 業務管理</td>
-                      <td><span class="badge-status">已啟用</span></td>
-                    </tr>
-                    <tr>
-                      <td>營運支援維護</td>
-                      <td>ops_support</td>
-                      <td>ops_supp****@corp.internal</td>
-                      <td>維運管理員</td>
-                      <td><span class="badge-status">已啟用</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+            <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 14px; margin-bottom: 6px;">落地規格佐證：權限與帳號管理結構線框示意 (去識別化)：</div>
+            <div class="mock-table-wrap">
+              <table class="mock-table">
+                <thead>
+                  <tr>
+                    <th>使用者標籤</th>
+                    <th>系統帳號</th>
+                    <th>電子郵件 (遮蔽)</th>
+                    <th>角色權限</th>
+                    <th>狀態</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>行銷團隊 01</td>
+                    <td>mkt_spec01</td>
+                    <td>user_mkt****@corp.internal</td>
+                    <td>行銷管理權限</td>
+                    <td><span class="badge-status-ok">已啟用</span></td>
+                  </tr>
+                  <tr>
+                    <td>客戶經理 RM</td>
+                    <td>rm_lead</td>
+                    <td>rm_lead****@corp.internal</td>
+                    <td>RM 業務管理</td>
+                    <td><span class="badge-status-ok">已啟用</span></td>
+                  </tr>
+                  <tr>
+                    <td>營運支援維護</td>
+                    <td>ops_support</td>
+                    <td>ops_supp****@corp.internal</td>
+                    <td>維運管理員</td>
+                    <td><span class="badge-status-ok">已啟用</span></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         `;
@@ -1801,10 +2176,10 @@
       let extLinkHtml = '';
       if (data.url) {
         extLinkHtml = `
-          <div style="margin-top: 8px;">
-            <a href="${data.url}" target="_blank" rel="noopener noreferrer" class="ext-link-btn" style="padding: 5px 12px; font-size: 0.8rem;">
-              <span>前往專案線上網址 (${data.url})</span>
-              <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="stroke-width: 2;">
+          <div style="margin-top: 10px;">
+            <a href="${data.url}" target="_blank" rel="noopener noreferrer" class="ext-inline-btn" style="padding: 4px 10px; font-size: 0.78rem;">
+              <span>前往線上產品 (${data.url})</span>
+              <svg width="11" height="11" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="stroke-width: 2;">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
               </svg>
             </a>
@@ -1812,37 +2187,73 @@
         `;
       }
 
+      let toolsBlockHtml = '';
+      if (data.tools && data.tools.length > 0) {
+        toolsBlockHtml = `
+          <div class="side-meta-block">
+            <span class="side-meta-label">核心使用工具</span>
+            <div class="side-tools-tags">
+              ${data.tools.map(tool => `<span class="tool-badge-mini">${tool}</span>`).join('')}
+            </div>
+          </div>
+        `;
+      }
+
       container.innerHTML = `
-        <div>
-          <span class="modal-header-meta">${data.company} • ${data.role}</span>
-          <h2 class="modal-sheet-title">${data.title}</h2>
-          <span style="font-size: 0.78rem; color: var(--text-faint); font-weight: 500;">${data.duration}</span>
+        <div style="padding-bottom: 12px; border-bottom: 1px solid var(--border-light);">
+          <span style="font-size: 0.78rem; font-weight: 700; color: var(--accent-warm); text-transform: uppercase; letter-spacing: 0.08em;">Case Study 專案詳情</span>
+          <h2 style="font-size: 1.45rem; font-weight: 700; color: var(--text-heading); margin-top: 4px; line-height: 1.35;">${data.title}</h2>
+          <p style="font-size: 0.88rem; color: var(--text-body); margin-top: 6px; line-height: 1.7;">${data.pitch}</p>
           ${extLinkHtml}
         </div>
 
-        <div>
-          <div class="modal-sec-label">專案範疇與背景</div>
-          <p style="font-size: 0.88rem; color: var(--text-body); line-height: 1.85;">${data.summary}</p>
-        </div>
+        <div class="modal-dashboard-layout">
+          <!-- 左側速覽面板 -->
+          <div class="modal-side-meta">
+            <div class="side-meta-block">
+              <span class="side-meta-label">專案角色</span>
+              <span class="side-meta-val">${data.role}</span>
+            </div>
+            <div class="side-meta-block">
+              <span class="side-meta-label">所屬單位</span>
+              <span class="side-meta-val" style="font-size: 0.82rem;">${data.company}</span>
+            </div>
+            <div class="side-meta-block">
+              <span class="side-meta-label">執行期間</span>
+              <span class="side-meta-val" style="font-size: 0.8rem; font-family: 'Inter', sans-serif;">${data.duration}</span>
+            </div>
+            <div class="side-meta-block">
+              <span class="side-meta-label">核心範疇</span>
+              <span style="font-size: 0.78rem; color: var(--text-body); line-height: 1.6;">${data.scope}</span>
+            </div>
+            ${toolsBlockHtml}
+          </div>
 
-        <div>
-          <div class="modal-sec-label">面臨挑戰與卡點</div>
-          <ul class="modal-body-list">
-            ${data.challenges.map(item => `<li>${item}</li>`).join('')}
-          </ul>
-        </div>
+          <!-- 右側主內容：三段結構卡片 -->
+          <div class="modal-main-content">
+            <div class="modal-block-card">
+              <div class="modal-block-label">01 / 背景與核心挑戰</div>
+              <ul class="modal-clean-list">
+                ${data.challenges.map(item => `<li>${item}</li>`).join('')}
+              </ul>
+            </div>
 
-        <div>
-          <div class="modal-sec-label">梳理策略與落地做法</div>
-          <ul class="modal-body-list">
-            ${data.solutions.map(item => `<li>${item}</li>`).join('')}
-          </ul>
-        </div>
+            <div class="modal-block-card">
+              <div class="modal-block-label">02 / 梳理策略與解決方案</div>
+              <ul class="modal-clean-list">
+                ${data.solutions.map(item => `<li>${item}</li>`).join('')}
+              </ul>
+            </div>
 
-        ${artifactHtml}
+            ${artifactHtml}
 
-        <div class="modal-tags-row">
-          ${data.tags.map(t => `<span class="modal-tag-chip">${t}</span>`).join('')}
+            <div class="modal-block-card" style="background: linear-gradient(135deg, rgba(243, 236, 225, 0.45) 0%, #FFFFFF 100%);">
+              <div class="modal-block-label">03 / 落地成效與價值</div>
+              <ul class="modal-clean-list">
+                ${data.impacts.map(item => `<li>${item}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
         </div>
       `;
 
